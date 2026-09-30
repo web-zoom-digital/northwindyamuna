@@ -5,6 +5,7 @@ import Image from "next/image";
 import { MapPin, Plane, Navigation, GraduationCap, Building, ArrowRight } from "lucide-react";
 import { useLeadModal } from "./LeadModalContext";
 import AnimatedReveal from "./AnimatedReveal";
+import TiltCard from "./TiltCard";
 
 export default function LocationSection() {
   const { openLeadModal } = useLeadModal();
@@ -80,41 +81,45 @@ export default function LocationSection() {
               );
             })}
 
-            <div className="pt-2">
-              <button
-                onClick={() =>
-                  openLeadModal({
-                    title: "Request Location Map & Driving Guide",
-                    ctaSource: "Location Section CTA",
-                  })
-                }
-                className="w-full sm:w-auto bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-xs transition flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Request Location Guide</span>
-                <ArrowRight className="w-4 h-4 text-[#ACC78C]" />
-              </button>
-            </div>
           </AnimatedReveal>
 
           {/* Visual Location Map Column (Right on Desktop, Above Content on Mobile) */}
           <AnimatedReveal direction="left" className="order-1 lg:order-2 lg:col-span-6 relative">
-            <div className="relative rounded-2xl overflow-hidden border border-[#0D3829]/15 shadow-md bg-[#F4F1DF]">
-              <div className="aspect-[4/3] relative w-full bg-[#F4F1DF]">
-                <Image
-                  src="/images/extracted/Sector22dyamunaexpressway.webp"
-                  alt="Sector 22D Yamuna Expressway Location Advantage Corridor"
-                  fill
-                  className="object-cover"
-                />
+            <TiltCard tiltDegree={4} depth={12}>
+              <div className="relative rounded-2xl overflow-hidden border border-[#0D3829]/15 shadow-md bg-[#F4F1DF]">
+                <div className="aspect-[4/3] relative w-full bg-[#F4F1DF]">
+                  <Image
+                    src="/images/extracted/Sector22dyamunaexpressway.webp"
+                    alt="Sector 22D Yamuna Expressway Location Advantage Corridor"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 bg-[#FFFCEC] border-t border-[#0D3829]/15 text-xs text-[#0D3829] flex items-center justify-between">
+                  <span className="font-bold text-[#0D3829]">Sector 22D Growth Corridor</span>
+                  <span className="text-[11px] text-[#5E7168] font-medium">Greater Noida, UP</span>
+                </div>
               </div>
-              <div className="p-4 bg-[#FFFCEC] border-t border-[#0D3829]/15 text-xs text-[#0D3829] flex items-center justify-between">
-                <span className="font-bold text-[#0D3829]">Sector 22D Growth Corridor</span>
-                <span className="text-[11px] text-[#5E7168] font-medium">Greater Noida, UP</span>
-              </div>
-            </div>
+            </TiltCard>
           </AnimatedReveal>
 
         </div>
+
+        {/* Bottom Centered CTA */}
+        <AnimatedReveal direction="up" delay={0.3} className="pt-12 text-center">
+          <button
+            onClick={() =>
+              openLeadModal({
+                title: "Request Location Map & Driving Guide",
+                ctaSource: "Location Section CTA",
+              })
+            }
+            className="inline-flex items-center justify-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-8 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-sm hover:shadow-md transition duration-300 cursor-pointer"
+          >
+            <span>Request Location Map & Driving Guide</span>
+            <ArrowRight className="w-4 h-4 text-[#ACC78C]" />
+          </button>
+        </AnimatedReveal>
 
       </div>
     </section>

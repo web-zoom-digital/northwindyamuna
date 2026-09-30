@@ -22,6 +22,7 @@ export const siteConfig = {
     {
       type: "3 BHK Luxury Apartment",
       bhk: "3 BHK",
+      status: "Coming Soon",
       size: "Price / Area on Request",
       price: "Price on Request",
       highlights: [
@@ -34,6 +35,7 @@ export const siteConfig = {
     {
       type: "4 BHK Ultra Estate Residence",
       bhk: "4 BHK",
+      status: "Coming Soon",
       size: "Price / Area on Request",
       price: "Price on Request",
       highlights: [
@@ -50,6 +52,7 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Amenities & Location", href: "/amenities" },
+    { label: "Blog", href: "/blog" },
     { label: "Contact Us", href: "/contact" }
   ]
 };

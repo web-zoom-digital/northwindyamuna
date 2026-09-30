@@ -12,22 +12,36 @@ export default function ProjectOverview() {
   return (
     <section id="overview" className="py-20 bg-[#FFFCEC] text-[#0D3829] border-y border-[#0D3829]/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Centered Section Header */}
+        <AnimatedReveal direction="up" className="text-center max-w-3xl mx-auto space-y-3 mb-14">
+          <span className="text-xs font-semibold tracking-wider text-[#0D3829] uppercase block">
+            Project Overview
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D3829]">
+            Thoughtfully Planned Residential Enclave
+          </h2>
+          <p className="text-xs sm:text-sm text-[#5E7168] font-light">
+            Discover Northwind Estate in Sector 22D, Yamuna Expressway — crafted for a balanced lifestyle blending contemporary architecture, spacious unit planning, and future-ready infrastructure.
+          </p>
+        </AnimatedReveal>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Visual Column */}
           <AnimatedReveal direction="right" className="order-1 lg:order-1 lg:col-span-6 relative">
-            <div className="relative rounded-2xl overflow-hidden border border-[#0D3829]/15 shadow-md bg-[#F4F1DF]">
-              <div className="aspect-[4/3] relative w-full bg-[#F4F1DF]">
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(13,58,41,0.08)] bg-[#F4F1DF] group">
+              <div className="aspect-[4/3] relative w-full bg-[#F4F1DF] overflow-hidden">
                 <Image
-                  src="/images/extracted/northwindanctuary.jpg"
+                  src="/images/blog/low-density-luxury-living-sector-22d.jpg"
                   alt="Northwind Estate Low Density Community Architecture"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
             </div>
 
-            {/* Badge Card */}
+            {/* Corner Info Tag */}
             <div className="absolute -bottom-6 -right-2 sm:right-6 bg-[#FFFCEC] border border-[#0D3829]/20 rounded-xl p-4 shadow-lg hidden sm:flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-[#0D3829] text-[#ACC78C] flex items-center justify-center">
                 <Trees className="w-5 h-5" />
@@ -41,20 +55,16 @@ export default function ProjectOverview() {
 
           {/* Text Content Column */}
           <AnimatedReveal direction="left" delay={0.2} className="order-2 lg:order-2 lg:col-span-6 space-y-6 text-left">
-            <span className="text-xs font-semibold tracking-wider text-[#0D3829] uppercase block">
-              Project Overview
-            </span>
+            <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#0D3829] leading-snug">
+              Modern Residences with Generous Proportions
+            </h3>
 
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D3829] leading-tight">
-              Thoughtfully Planned Residential Enclave
-            </h2>
-
-            <p className="text-sm sm:text-base text-[#2D3C25] leading-relaxed font-light">
-              Explore <strong className="text-[#0D3829]">Northwind Estate</strong>, the residential development in Sector 22D, Yamuna Expressway, Greater Noida. Crafted to offer a balanced lifestyle blending contemporary architecture, spacious unit planning, and future-ready infrastructure.
+            <p className="text-sm text-[#2D3C25] leading-relaxed font-light">
+              <strong className="text-[#0D3829] font-semibold">Northwind Estate</strong> represents a refined residential benchmark in Sector 22D, Yamuna Expressway. Every tower is situated to optimize natural daylight, prevailing wind circulation, and unhindered balcony views.
             </p>
 
             <p className="text-sm text-[#2D3C25] leading-relaxed font-light">
-              Featuring contemporary 3 BHK and 4 BHK residences with expansive balconies and wide window openings for natural daylighting and cross-ventilation.
+              Featuring contemporary 3 BHK and 4 BHK residences with expansive deep-deck balconies, large UPVC sliding doors, and master suites tailored for multi-generational living.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -78,24 +88,26 @@ export default function ProjectOverview() {
                 </p>
               </div>
             </div>
-
-            <div className="pt-2">
-              <button
-                onClick={() =>
-                  openLeadModal({
-                    title: "Get Project Details & Brochure",
-                    ctaSource: "Project Overview CTA",
-                  })
-                }
-                className="bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition flex items-center gap-2 group shadow-xs cursor-pointer"
-              >
-                <span>Get Complete Project Details</span>
-                <ArrowRight className="w-4 h-4 text-[#ACC78C] group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
           </AnimatedReveal>
 
         </div>
+
+        {/* Centered Bottom Action Button */}
+        <AnimatedReveal direction="up" delay={0.3} className="pt-12 text-center">
+          <button
+            onClick={() =>
+              openLeadModal({
+                title: "Get Project Details & Brochure",
+                ctaSource: "Project Overview CTA",
+              })
+            }
+            className="inline-flex items-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-8 py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-sm cursor-pointer group"
+          >
+            <span>Get Complete Project Details</span>
+            <ArrowRight className="w-4 h-4 text-[#ACC78C] group-hover:translate-x-1 transition-transform" />
+          </button>
+        </AnimatedReveal>
+
       </div>
     </section>
   );

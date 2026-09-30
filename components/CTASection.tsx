@@ -47,13 +47,18 @@ export default function CTASection({
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#0D3829]" />
             </button>
 
-            <a
-              href={`tel:${siteConfig.phone}`}
-              className="bg-[#FFFCEC] hover:bg-[#F4F1DF] text-[#0D3829] border border-[#0D3829]/20 font-semibold px-5 py-3 rounded-xl text-xs transition flex items-center gap-2 shadow-xs"
+            <button
+              onClick={() =>
+                openLeadModal({
+                  title: "Connect with Sales Desk",
+                  ctaSource: "Bottom CTA Section Call",
+                })
+              }
+              className="bg-[#FFFCEC] hover:bg-[#F4F1DF] text-[#0D3829] border border-[#0D3829]/20 font-semibold px-5 py-3 rounded-xl text-xs transition flex items-center gap-2 shadow-xs cursor-pointer"
             >
               <Phone className="w-4 h-4 text-[#0D3829]" />
               <span>Call +91 97177 00596</span>
-            </a>
+            </button>
           </div>
 
           <div className="pt-2 flex items-center justify-center gap-6 text-[11px] text-[#ACC78C]/80 font-medium">

@@ -43,7 +43,7 @@ export default function AmenitiesPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-5 text-left">
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-left flex flex-col items-center lg:items-start">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A2B] border border-[#ACC78C]/30 text-xs font-semibold text-[#ACC78C]">
                 <Sparkles className="w-3.5 h-3.5 text-[#ACC78C]" /> Resort Lifestyle &amp; Connectivity
               </div>
@@ -55,7 +55,7 @@ export default function AmenitiesPage() {
               </p>
 
               {/* Feature Chips */}
-              <div className="flex flex-wrap gap-2 pt-2 text-xs text-[#FFFCEC]">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-2 text-xs text-[#FFFCEC]">
                 <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1E3A2B]/90 border border-[#ACC78C]/20 font-medium">
                   <Building2 className="w-3.5 h-3.5 text-[#ACC78C]" /> Modern Clubhouse &amp; Lounge
                 </span>

@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldAlert, ArrowUpRight, Phone, Mail, Sparkles } from "lucide-react";
+import { ShieldAlert, ArrowUpRight, Phone, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import { useLeadModal } from "./LeadModalContext";
 
@@ -106,13 +106,18 @@ export default function Footer() {
               For instant site visit cab booking, verified price sheets, and floor plan brochures:
             </p>
             <div className="space-y-2 pt-1">
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="flex items-center gap-2 text-[#FFFCEC] font-bold hover:text-[#ACC78C] transition"
+              <button
+                onClick={() =>
+                  openLeadModal({
+                    title: "Speak to Sales Consultant",
+                    ctaSource: "Footer Phone Enquiry",
+                  })
+                }
+                className="flex items-center gap-2 text-[#FFFCEC] font-bold hover:text-[#ACC78C] transition cursor-pointer"
               >
                 <Phone className="w-3.5 h-3.5 text-[#ACC78C]" />
                 <span>+91 97177 00596</span>
-              </a>
+              </button>
               <button
                 onClick={() =>
                   openLeadModal({

@@ -131,11 +131,17 @@ export default function SiteMasterPlanPage() {
             variant="dark"
           />
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ACC78C]/20 border border-[#ACC78C]/30 text-xs font-semibold text-[#ACC78C]">
-            <Compass className="w-3.5 h-3.5 text-[#B9A148]" /> Township Architecture &amp; Master Planning
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A2B]/90 border border-[#ACC78C]/40 text-xs font-semibold text-[#ACC78C]">
+              <span className="w-2 h-2 rounded-full bg-[#ACC78C] animate-ping" />
+              <span>Coming Soon • Master Layout</span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ACC78C]/20 border border-[#ACC78C]/30 text-xs font-semibold text-[#ACC78C]">
+              <Compass className="w-3.5 h-3.5 text-[#B9A148]" /> Township Architecture &amp; Master Planning
+            </div>
           </div>
 
-          <div className="max-w-3xl space-y-4">
+          <div className="max-w-3xl space-y-4 text-center sm:text-left mx-auto sm:mx-0">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-[#FFFCEC] leading-tight">
               Site &amp; <span className="gold-gradient-text">Master Layout Plan</span>
             </h1>
@@ -265,7 +271,7 @@ export default function SiteMasterPlanPage() {
                   {planningFeatures.map((feat) => {
                     const IconComponent = feat.icon;
                     return (
-                      <div key={feat.title} className="bg-white border border-[#0D3829]/15 rounded-xl p-5 shadow-xs space-y-2.5 hover:border-[#0D3829] transition">
+                      <div key={feat.title} className="bg-white border border-[#0D3829]/15 rounded-xl p-5 shadow-xs space-y-2.5 hover:border-[#0D3829] transition cursor-pointer">
                         <div className="w-9 h-9 rounded-lg bg-[#0D3829] text-[#FFFCEC] flex items-center justify-center">
                           <IconComponent className="w-5 h-5 text-[#ACC78C]" />
                         </div>
@@ -344,9 +350,9 @@ export default function SiteMasterPlanPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
             {galleryImages.map((img) => (
-              <div key={img.title} className="group bg-white border border-[#0D3829]/15 rounded-xl overflow-hidden shadow-xs hover-card-lift">
+              <div key={img.title} className="group bg-white border border-[#0D3829]/15 rounded-xl overflow-hidden shadow-xs hover-card-lift cursor-pointer">
                 <div className="aspect-[4/3] relative bg-[#0D3829] overflow-hidden">
                   <Image
                     src={img.src}
@@ -355,9 +361,9 @@ export default function SiteMasterPlanPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-4 space-y-1">
-                  <h4 className="font-serif font-bold text-xs sm:text-sm text-[#0D3829]">{img.title}</h4>
-                  <p className="text-[11px] text-[#5E7168] font-light">{img.subtitle}</p>
+                <div className="p-2.5 sm:p-4 space-y-0.5 sm:space-y-1">
+                  <h4 className="font-serif font-bold text-xs sm:text-sm text-[#0D3829] line-clamp-1 sm:line-clamp-none">{img.title}</h4>
+                  <p className="text-[10px] sm:text-[11px] text-[#5E7168] font-light line-clamp-2">{img.subtitle}</p>
                 </div>
               </div>
             ))}

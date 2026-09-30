@@ -164,7 +164,7 @@ export default function LeadForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 text-left">
+    <form onSubmit={handleSubmit} className={`${compact ? "space-y-3" : "space-y-4"} text-left`}>
       {/* Honeypot Field (Invisible to real users) */}
       <div className="hidden" aria-hidden="true">
         <input
@@ -178,7 +178,7 @@ export default function LeadForm({
       </div>
 
       {errorMessage && (
-        <div className="bg-rose-50 border border-rose-300 text-rose-800 text-xs sm:text-sm p-3.5 rounded-lg flex items-start gap-2.5">
+        <div className="bg-rose-50 border border-rose-300 text-rose-800 text-xs sm:text-sm p-3 rounded-lg flex items-start gap-2.5">
           <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
           <span>{errorMessage}</span>
         </div>
@@ -186,7 +186,7 @@ export default function LeadForm({
 
       {/* Name */}
       <div>
-        <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
+        <label className={`block font-semibold text-[#0D3829] ${compact ? "text-[11px] mb-1" : "text-xs mb-1.5"}`}>
           Full Name <span className="text-[#0D3829]">*</span>
         </label>
         <input
@@ -196,17 +196,17 @@ export default function LeadForm({
           placeholder="e.g. Rahul Sharma"
           value={formData.name}
           onChange={handleChange}
-          className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg px-3.5 py-2.5 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
+          className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg ${compact ? "px-3 py-2 text-xs" : "px-3.5 py-2.5 text-sm"} placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
         />
       </div>
 
       {/* Phone */}
       <div>
-        <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
+        <label className={`block font-semibold text-[#0D3829] ${compact ? "text-[11px] mb-1" : "text-xs mb-1.5"}`}>
           Mobile Number <span className="text-[#0D3829]">*</span>
         </label>
         <div className="flex">
-          <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-[#0D3829]/25 bg-[#F4F1DF] text-[#0D3829] text-xs font-semibold">
+          <span className={`inline-flex items-center rounded-l-lg border border-r-0 border-[#0D3829]/25 bg-[#F4F1DF] text-[#0D3829] font-semibold ${compact ? "px-2.5 text-[11px]" : "px-3 text-xs"}`}>
             +91
           </span>
           <input
@@ -217,14 +217,14 @@ export default function LeadForm({
             placeholder="10-digit mobile number"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-r-lg px-3.5 py-2.5 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
+            className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-r-lg ${compact ? "px-3 py-2 text-xs" : "px-3.5 py-2.5 text-sm"} placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
           />
         </div>
       </div>
 
       {/* Email */}
       <div>
-        <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
+        <label className={`block font-semibold text-[#0D3829] ${compact ? "text-[11px] mb-1" : "text-xs mb-1.5"}`}>
           Email Address <span className="text-[#5E7168] font-normal">(Optional)</span>
         </label>
         <input
@@ -233,21 +233,21 @@ export default function LeadForm({
           placeholder="name@example.com"
           value={formData.email}
           onChange={handleChange}
-          className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg px-3.5 py-2.5 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
+          className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg ${compact ? "px-3 py-2 text-xs" : "px-3.5 py-2.5 text-sm"} placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
         />
       </div>
 
       {/* Configuration & Budget Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className={`grid ${compact ? "grid-cols-2 gap-2" : "grid-cols-1 sm:grid-cols-2 gap-3"}`}>
         <div>
-          <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
-            Preferred Configuration
+          <label className={`block font-semibold text-[#0D3829] ${compact ? "text-[11px] mb-1" : "text-xs mb-1.5"}`}>
+            Configuration
           </label>
           <select
             name="configuration"
             value={formData.configuration}
             onChange={handleChange}
-            className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
+            className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg ${compact ? "px-2 py-2 text-[11px]" : "px-3 py-2.5 text-xs sm:text-sm"} focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
           >
             <option value="">Select Configuration</option>
             <option value="3 BHK Luxury Apartment">3 BHK Luxury Apartment</option>
@@ -257,14 +257,14 @@ export default function LeadForm({
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
+          <label className={`block font-semibold text-[#0D3829] ${compact ? "text-[11px] mb-1" : "text-xs mb-1.5"}`}>
             Budget Range <span className="text-[#5E7168] font-normal">(Optional)</span>
           </label>
           <select
             name="budget"
             value={formData.budget}
             onChange={handleChange}
-            className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
+            className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg ${compact ? "px-2 py-2 text-[11px]" : "px-3 py-2.5 text-xs sm:text-sm"} focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
           >
             <option value="">Select Budget Range</option>
             <option value="Under ₹1 Cr">Under ₹1 Cr</option>
@@ -310,16 +310,16 @@ export default function LeadForm({
       )}
 
       {/* Consent Checkbox */}
-      <div className="flex items-start gap-2.5 pt-1">
+      <div className="flex items-start gap-2 pt-0.5">
         <input
           type="checkbox"
           id="consent"
           name="consent"
           checked={formData.consent}
           onChange={handleChange}
-          className="mt-1 h-4 w-4 rounded border-[#0D3829]/30 bg-white text-[#0D3829] focus:ring-[#0D3829] accent-[#0D3829]"
+          className="mt-0.5 h-3.5 w-3.5 rounded border-[#0D3829]/30 bg-white text-[#0D3829] focus:ring-[#0D3829] accent-[#0D3829]"
         />
-        <label htmlFor="consent" className="text-[11px] sm:text-xs text-[#2D3C25] leading-snug">
+        <label htmlFor="consent" className="text-[10px] sm:text-[11px] text-[#2D3C25] leading-snug">
           I agree to be contacted regarding this property enquiry via Phone, WhatsApp &amp; Email.
         </label>
       </div>
@@ -328,7 +328,7 @@ export default function LeadForm({
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] font-bold py-3.5 px-6 rounded-lg shadow-md transition-all flex items-center justify-center gap-2 text-sm uppercase tracking-wider disabled:opacity-70 mt-2 cursor-pointer border border-[#ACC78C]/30"
+        className={`w-full bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] font-bold ${compact ? "py-2.5 px-4 text-xs mt-1" : "py-3.5 px-6 text-sm mt-2"} rounded-lg shadow-md transition-all flex items-center justify-center gap-2 uppercase tracking-wider disabled:opacity-70 cursor-pointer border border-[#ACC78C]/30`}
       >
         {loading ? (
           <>
@@ -338,12 +338,12 @@ export default function LeadForm({
         ) : (
           <>
             <span>Submit Enquiry</span>
-            <Send className="w-4 h-4 text-[#ACC78C]" />
+            <Send className="w-3.5 h-3.5 text-[#ACC78C]" />
           </>
         )}
       </button>
 
-      <p className="text-[10px] text-[#5E7168] text-center pt-1 font-light">
+      <p className="text-[9px] sm:text-[10px] text-[#5E7168] text-center pt-0.5 font-light">
         Your details are strictly confidential.
       </p>
     </form>

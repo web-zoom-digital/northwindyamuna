@@ -32,7 +32,7 @@ export default function TermsPage() {
         {/* Ambient Glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-[#ACC78C]/15 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full space-y-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full space-y-4 text-center sm:text-left flex flex-col items-center sm:items-start">
           <Breadcrumb items={[{ label: "Terms & Conditions", href: "/terms-and-conditions" }]} variant="dark" />
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ACC78C]/20 border border-[#ACC78C]/30 text-xs font-semibold text-[#ACC78C]">

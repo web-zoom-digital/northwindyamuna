@@ -3,60 +3,67 @@
 import React from "react";
 import { Phone, Calendar } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { siteConfig } from "@/lib/siteConfig";
 import { useLeadModal } from "./LeadModalContext";
 
 export default function StickyMobileCTA() {
   const { openLeadModal } = useLeadModal();
 
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    siteConfig.whatsappMessage
-  )}`;
-
   return (
-    <div className="md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-[90] w-auto max-w-[92vw]">
-      <div className="bg-[#0D3829]/95 backdrop-blur-2xl border border-[#ACC78C]/35 px-5 py-3 rounded-full shadow-[0_16px_50px_rgba(13,56,41,0.6)] flex items-center justify-center gap-6 ring-1 ring-white/10">
-        {/* Call Icon */}
-        <a
-          href={`tel:${siteConfig.phone}`}
-          className="w-12 h-12 bg-[#1E3A2B] hover:bg-[#23533E] text-[#FFFCEC] rounded-full flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md border border-[#ACC78C]/30"
+    <div className="md:hidden fixed bottom-2 left-1/2 -translate-x-1/2 z-[95] w-full max-w-[95vw] pointer-events-auto">
+      <div className="bg-[#0D3829]/80 border border-[#ACC78C]/40 px-2 sm:px-3 py-1 sm:py-2 rounded-full shadow-[0_12px_40px_rgba(13,56,41,0.5)] flex items-center justify-center gap-24 sm:gap-20 ring-1 ring-white/10">
+
+        {/* 1. Call Icon Button */}
+        <button
+          onClick={() =>
+            openLeadModal({
+              title: "Request Instant Call Back",
+              ctaSource: "Sticky Mobile Bar Call",
+            })
+          }
+          className="flex flex-col items-center gap-1 group transition-transform active:scale-95 cursor-pointer"
           aria-label="Call Sales Desk"
           title="Call Sales Desk"
         >
-          <Phone className="w-5.5 h-5.5 stroke-[2.3] text-[#ACC78C]" />
-        </a>
+          <div className="w-12 h-12 sm:w-11 sm:h-11 rounded-full bg-[#1E3A2B] hover:bg-[#254a37] text-[#ACC78C] flex items-center justify-center border border-[#ACC78C]/30 shadow-md transition-all group-hover:scale-105">
+            <Phone className="w-5 h-5 text-[#ACC78C]" />
+          </div>
+        </button>
 
-        {/* WhatsApp Icon (Center Focal Highlight) */}
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full flex items-center justify-center transition-all duration-200 active:scale-90 shadow-xl shadow-green-950/60 border border-emerald-300/50"
+        {/* 2. WhatsApp Icon Button (Center Highlight) */}
+        <button
+          onClick={() =>
+            openLeadModal({
+              title: "Connect on WhatsApp",
+              ctaSource: "Sticky Mobile Bar WhatsApp",
+            })
+          }
+          className="flex flex-col items-center gap-1 group transition-transform active:scale-95 cursor-pointer"
           aria-label="Chat on WhatsApp"
           title="Chat on WhatsApp"
         >
-          <FaWhatsapp className="w-7 h-7" />
-        </a>
+          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-[0_4px_15px_rgba(37,211,102,0.4)] border border-white/25 transition-all group-hover:scale-105">
+            <FaWhatsapp className="w-6 h-6 text-white" />
+          </div>
+        </button>
 
-        {/* Site Visit / Schedule Icon */}
+        {/* 3. Schedule Visit Icon Button */}
         <button
           onClick={() =>
             openLeadModal({
               title: "Schedule Site Visit",
-              ctaSource: "Sticky Mobile Visit Icon",
+              ctaSource: "Sticky Bottom Bar Schedule Visit",
             })
           }
-          className="w-12 h-12 bg-[#ACC78C] hover:bg-[#9BB77A] text-[#0D3829] rounded-full flex items-center justify-center transition-all duration-200 active:scale-90 shadow-xl shadow-[#0D3829]/60 border border-[#ACC78C] cursor-pointer"
+          className="flex flex-col items-center gap-1 group transition-transform active:scale-95 cursor-pointer"
           aria-label="Schedule Site Visit"
           title="Schedule Site Visit"
         >
-          <Calendar className="w-5.5 h-5.5 stroke-[2.3] text-[#0D3829]" />
+          <div className="w-11 h-11 sm:w-11 sm:h-11 rounded-full bg-[#ACC78C] hover:bg-[#9BB77A] text-[#0D3829] flex items-center justify-center border border-[#ACC78C] shadow-md transition-all group-hover:scale-105">
+            <Calendar className="w-5 h-5 text-[#0D3829]" />
+          </div>
         </button>
+
       </div>
     </div>
   );
 }
-
-
-
-

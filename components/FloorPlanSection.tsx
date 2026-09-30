@@ -19,7 +19,7 @@ interface FloorPlanItem {
 
 export default function FloorPlanSection() {
   const [activeTab, setActiveTab] = useState<"3BHK" | "4BHK" | "MASTER">("3BHK");
-  const [viewMode, setViewMode] = useState<"blueprint" | "render">("blueprint");
+  const [viewMode, setViewMode] = useState<"blueprint" | "render">("render");
   const [lightboxImage, setLightboxImage] = useState<{ src: string; title: string } | null>(null);
   const { openLeadModal } = useLeadModal();
 
@@ -83,10 +83,10 @@ export default function FloorPlanSection() {
     <section id="floor-plans" className="py-20 bg-[#F4F1DF] text-[#0D3829] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
+        {/* Centered Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
           <span className="text-xs font-semibold tracking-wider text-[#0D3829] uppercase block">
-            Architectural Layouts &amp; Site Plans
+            Architectural Master &amp; Floor Layouts
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D3829]">
             Project Floor &amp; Master Plans
@@ -105,7 +105,7 @@ export default function FloorPlanSection() {
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                className={`p-4 rounded-xl border transition-all text-left flex items-start gap-4 cursor-pointer ${
+                className={`p-4 rounded-xl border transition-all text-left flex items-start gap-4 cursor-pointer relative overflow-hidden ${
                   isSelected
                     ? "bg-[#FFFCEC] border-[#0D3829] shadow-md ring-1 ring-[#0D3829]"
                     : "bg-[#FFFCEC]/80 border-[#0D3829]/15 hover:border-[#0D3829]/40"
@@ -113,19 +113,29 @@ export default function FloorPlanSection() {
               >
                 <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-[#F4F1DF] border border-[#0D3829]/15 flex-shrink-0">
                   <Image
-                    src={plan.realVisual}
+                    src={plan.image}
                     alt={plan.title}
                     fill
                     className="object-cover"
                   />
+                  <div className="absolute top-1 left-1 bg-[#0D3829]/90 text-[#FFFCEC] text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">
+                    {plan.bhk}
+                  </div>
                 </div>
                 <div className="flex-grow min-w-0">
-                  <h3 className="font-serif font-bold text-sm text-[#0D3829] truncate">
-                    {plan.title}
-                  </h3>
-                  <p className="text-xs text-[#5E7168] truncate font-light mt-0.5">
-                    {plan.size}
-                  </p>
+                  <div className="flex items-center justify-between gap-1 mb-0.5">
+                    <h3 className="font-serif font-bold text-sm text-[#0D3829] truncate">
+                      {plan.title}
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#0D3829] bg-[#ACC78C]/35 border border-[#0D3829]/20 px-1.5 py-0.5 rounded-md flex-shrink-0">
+                      Coming Soon
+                    </span>
+                    <p className="text-xs text-[#5E7168] truncate font-light">
+                      {plan.size}
+                    </p>
+                  </div>
                 </div>
               </button>
             );
@@ -151,14 +161,17 @@ export default function FloorPlanSection() {
                 
                 {/* Overlay Top Bar */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
-                  <div className="bg-[#0D3829] text-[#FFFCEC] text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xs border border-[#ACC78C]/30">
-                    {currentPlan.bhk} • {viewMode === "render" ? "Elevation Render" : "2D Blueprint"}
+                  <div className="bg-[#0D3829] text-[#FFFCEC] text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xs border border-[#ACC78C]/30 flex items-center gap-2">
+                    <span>{currentPlan.bhk} • {viewMode === "render" ? "Architectural Elevation" : "2D Blueprint"}</span>
+                    <span className="bg-[#ACC78C] text-[#0D3829] font-bold text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">
+                      Coming Soon
+                    </span>
                   </div>
 
                   <button
                     onClick={() => setLightboxImage({
                       src: viewMode === "render" ? currentPlan.realVisual : currentPlan.image,
-                      title: `${currentPlan.title} (${viewMode === "render" ? "Elevation Render" : "2D Blueprint"})`
+                      title: `${currentPlan.title} (${viewMode === "render" ? "Architectural Elevation" : "2D Blueprint"})`
                     })}
                     className="pointer-events-auto bg-[#FFFCEC] hover:bg-[#F4F1DF] text-[#0D3829] text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xs border border-[#0D3829]/20 transition flex items-center gap-1.5 cursor-pointer"
                   >
@@ -170,17 +183,7 @@ export default function FloorPlanSection() {
 
               {/* View Mode Switcher Pills */}
               <div className="flex items-center justify-center gap-3 pt-1">
-                <button
-                  onClick={() => setViewMode("blueprint")}
-                  className={`px-4 py-2 rounded-lg text-xs font-semibold transition cursor-pointer border flex items-center gap-2 ${
-                    viewMode === "blueprint"
-                      ? "bg-[#0D3829] text-[#FFFCEC] border-[#0D3829]"
-                      : "bg-[#0D3829]/10 text-[#0D3829] border-[#0D3829]/15 hover:bg-[#0D3829]/20"
-                  }`}
-                >
-                  <Home className="w-3.5 h-3.5" />
-                  <span>2D Blueprint Layout</span>
-                </button>
+                
                 <button
                   onClick={() => setViewMode("render")}
                   className={`px-4 py-2 rounded-lg text-xs font-semibold transition cursor-pointer border flex items-center gap-2 ${
@@ -191,6 +194,17 @@ export default function FloorPlanSection() {
                 >
                   <Building className="w-3.5 h-3.5" />
                   <span>Architectural Elevation</span>
+                </button>
+                <button
+                  onClick={() => setViewMode("blueprint")}
+                  className={`px-4 py-2 rounded-lg text-xs font-semibold transition cursor-pointer border flex items-center gap-2 ${
+                    viewMode === "blueprint"
+                      ? "bg-[#0D3829] text-[#FFFCEC] border-[#0D3829]"
+                      : "bg-[#0D3829]/10 text-[#0D3829] border-[#0D3829]/15 hover:bg-[#0D3829]/20"
+                  }`}
+                >
+                  <Home className="w-3.5 h-3.5" />
+                  <span>2D Blueprint Layout</span>
                 </button>
               </div>
             </div>
@@ -207,7 +221,10 @@ export default function FloorPlanSection() {
                 <p className="text-xs text-[#5E7168] font-light mb-4 leading-relaxed">
                   {currentPlan.subtitle}
                 </p>
-                <div className="flex flex-wrap items-center gap-3 text-xs text-[#0D3829]">
+                <div className="flex flex-wrap items-center gap-2.5 text-xs text-[#0D3829]">
+                  <span className="bg-[#0D3829] text-[#FFFCEC] px-3 py-1.5 rounded-lg border border-[#ACC78C]/40 font-bold uppercase tracking-wider text-[10px]">
+                    Coming Soon
+                  </span>
                   <span className="bg-[#F4F1DF] px-3.5 py-1.5 rounded-lg border border-[#0D3829]/15 font-semibold">
                     Dimensions: {currentPlan.size}
                   </span>
@@ -254,6 +271,22 @@ export default function FloorPlanSection() {
             </div>
 
           </div>
+        </div>
+
+        {/* Bottom Centered CTA */}
+        <div className="pt-12 text-center">
+          <button
+            onClick={() =>
+              openLeadModal({
+                title: "Download Complete Floor Plans & Master Brochure",
+                ctaSource: "Floor Plans Section Bottom CTA",
+              })
+            }
+            className="inline-flex items-center justify-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-8 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-sm hover:shadow-md transition duration-300 cursor-pointer"
+          >
+            <Download className="w-4 h-4 text-[#ACC78C]" />
+            <span>Download All Floor Plans &amp; Master Brochure</span>
+          </button>
         </div>
 
       </div>

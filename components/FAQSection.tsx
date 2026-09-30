@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, HelpCircle, Sparkles, MessageCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 import { useLeadModal } from "./LeadModalContext";
 import AnimatedReveal from "./AnimatedReveal";
 
@@ -72,7 +72,7 @@ export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQItem[] })
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#FFFCEC] text-[#0D3829] border-t border-[#0D3829]/15">
+    <section id="faq" className="py-20 bg-[#F4F1DF] text-[#0D3829] border-t border-[#0D3829]/15">
       {/* FAQ Schema Script */}
       <script
         type="application/ld+json"
@@ -83,11 +83,11 @@ export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQItem[] })
         
         {/* Header */}
         <AnimatedReveal direction="up" className="text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D3829]/10 border border-[#0D3829]/20 text-xs font-semibold text-[#0D3829]">
-            <HelpCircle className="w-3.5 h-3.5 text-[#0D3829]" /> Frequently Asked Questions
-          </div>
+          <span className="text-xs font-semibold tracking-wider text-[#0D3829] uppercase block">
+            Frequently Asked Questions
+          </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D3829]">
-            Everything You Need to <span className="gold-gradient-text">Know</span>
+            Everything You Need to Know
           </h2>
           <p className="text-xs sm:text-sm text-[#5E7168] font-light">
             Verified information regarding location, layout configurations, amenities, and site visit scheduling.
@@ -138,7 +138,7 @@ export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQItem[] })
 
         {/* Still have questions banner */}
         <AnimatedReveal direction="up" delay={0.3} className="mt-12">
-          <div className="text-center bg-[#F4F1DF] border border-[#0D3829]/15 rounded-xl p-6 space-y-3 shadow-xs hover-card-lift">
+          <div className="text-center bg-[#FFFCEC] border border-[#0D3829]/15 rounded-xl p-6 space-y-3 shadow-xs hover-card-lift">
             <h3 className="text-base font-serif font-bold text-[#0D3829]">Have additional questions regarding Northwind Estate?</h3>
             <p className="text-xs text-[#5E7168] font-light">
               Our property consultants are ready to assist you with customized cost sheets and floor plan details.
@@ -150,7 +150,7 @@ export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQItem[] })
                   ctaSource: "FAQ Section Ask Question",
                 })
               }
-              className="inline-flex items-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-xs cursor-pointer "
+              className="inline-flex items-center gap-2 bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] border border-[#ACC78C]/30 font-semibold px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow-xs cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 text-[#ACC78C]" />
               <span>Ask a Consultant</span>

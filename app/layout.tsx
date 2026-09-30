@@ -145,6 +145,7 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
           <WhatsAppButton />
+          <StickyMobileCTA />
           <LeadModal />
         </LeadModalProvider>
       </body>
