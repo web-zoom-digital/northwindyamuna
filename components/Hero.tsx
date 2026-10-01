@@ -55,12 +55,21 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center pt-24 sm:pt-28 md:pt-32 pb-16 overflow-hidden bg-[#0D3829] text-white">
       {/* Full Screen Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
+        {/* Desktop Background (md and above) */}
         <Image
           src="/images/extracted/Banner.jpg"
           alt="Northwind Estate Sector 22D Yamuna Expressway"
           fill
           priority
-          className="object-fit opacity-50"
+          className="object-cover opacity-50 hidden md:block"
+        />
+        {/* Mobile Background (below md) */}
+        <Image
+          src="/images/extracted/Banner-mobile.jpg"
+          alt="Northwind Estate Sector 22D Yamuna Expressway Mobile"
+          fill
+          priority
+          className="object-fit object-center opacity-60 md:hidden"
         />
       </div>
 
