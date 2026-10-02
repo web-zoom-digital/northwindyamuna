@@ -69,7 +69,7 @@ export default function Hero() {
           alt="Northwind Estate Sector 22D Yamuna Expressway Mobile"
           fill
           priority
-          className="object-fit object-center opacity-60 md:hidden"
+          className="object-cover object-center opacity-60 md:hidden"
         />
       </div>
 

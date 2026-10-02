@@ -16,7 +16,6 @@ import {
   Crown, 
   Building2 
 } from "lucide-react";
-import Breadcrumb from "@/components/Breadcrumb";
 import LeadForm from "@/components/LeadForm";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import AnimatedReveal from "@/components/AnimatedReveal";
@@ -124,8 +123,8 @@ export default function FourBhkConfigurationPage() {
 
   return (
     <>
-      {/* Full-Screen Hero Section matching Home Page */}
-      <section className="relative min-h-screen flex items-center pt-24 sm:pt-28 md:pt-32 pb-16 overflow-hidden bg-[#0D3829] text-white">
+      {/* Full-Screen Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-28 md:pt-32 pb-16 overflow-hidden bg-[#0D3829] text-white">
         {/* Full Screen Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -137,68 +136,14 @@ export default function FourBhkConfigurationPage() {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full space-y-6">
-          <Breadcrumb
-            items={[
-              { label: "Configurations", href: "/#configurations" },
-              { label: "4 BHK Ultra Estate Residence", href: "/configurations/4-bhk-ultra-estate-residence" },
-            ]}
-            variant="dark"
-          />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-4 flex flex-col items-center">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-[#FFFCEC] leading-tight max-w-3xl">
+            4 BHK <span className="gold-gradient-text">Ultra Estate Residence</span>
+          </h1>
 
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E3A2B]/90 border border-[#ACC78C]/40 text-xs font-semibold text-[#ACC78C]">
-              <span className="w-2 h-2 rounded-full bg-[#ACC78C] animate-ping" />
-              <span>Coming Soon • Pre-Launch</span>
-            </div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B9A148]/25 border border-[#B9A148]/40 text-xs font-semibold text-[#FFFCEC]">
-              <Crown className="w-3.5 h-3.5 text-[#B9A148]" /> Flagship Executive Residence
-            </div>
-          </div>
-
-          <div className="max-w-3xl space-y-4 text-center sm:text-left mx-auto sm:mx-0">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-[#FFFCEC] leading-tight">
-              4 BHK <span className="gold-gradient-text">Ultra Estate Residence</span>
-            </h1>
-
-            <p className="text-sm sm:text-base text-[#ACC78C]/90 font-light leading-relaxed">
-              An uncompromised statement of expansive luxury on Yamuna Expressway. Crafted for distinguished multi-generational families demanding grandeur, privacy, and world-class architectural finesse.
-            </p>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-3xl">
-            <div className="bg-[#1E3A2B]/80 backdrop-blur-md border border-[#ACC78C]/25 p-3.5 rounded-xl">
-              <div className="flex items-center gap-2 text-[#ACC78C] text-xs font-medium">
-                <BedDouble className="w-4 h-4" /> Bedrooms
-              </div>
-              <p className="text-lg font-bold text-[#FFFCEC] font-serif pt-1">4 En-Suite</p>
-            </div>
-
-            <div className="bg-[#1E3A2B]/80 backdrop-blur-md border border-[#ACC78C]/25 p-3.5 rounded-xl">
-              <div className="flex items-center gap-2 text-[#ACC78C] text-xs font-medium">
-                <Bath className="w-4 h-4" /> Bathrooms
-              </div>
-              <p className="text-lg font-bold text-[#FFFCEC] font-serif pt-1">4 + Powder</p>
-            </div>
-
-            <div className="bg-[#1E3A2B]/80 backdrop-blur-md border border-[#ACC78C]/25 p-3.5 rounded-xl">
-              <div className="flex items-center gap-2 text-[#ACC78C] text-xs font-medium">
-                <Building2 className="w-4 h-4" /> Balconies
-              </div>
-              <p className="text-lg font-bold text-[#FFFCEC] font-serif pt-1">Grand Decks</p>
-            </div>
-
-            <div className="bg-[#1E3A2B]/80 backdrop-blur-md border border-[#ACC78C]/25 p-3.5 rounded-xl">
-              <div className="flex items-center gap-2 text-[#ACC78C] text-xs font-medium">
-                <Maximize2 className="w-4 h-4" /> Status &amp; Pricing
-              </div>
-              <p className="text-sm font-bold text-[#ACC78C] uppercase tracking-wider pt-1.5 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#ACC78C] animate-ping" />
-                Coming Soon
-              </p>
-            </div>
-          </div>
+          <p className="text-sm sm:text-base text-[#ACC78C]/90 font-light leading-relaxed max-w-2xl">
+            An uncompromised statement of expansive luxury on Yamuna Expressway. Crafted for distinguished multi-generational families demanding grandeur, privacy, and world-class architectural finesse.
+          </p>
         </div>
       </section>
 
