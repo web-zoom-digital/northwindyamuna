@@ -129,6 +129,51 @@ export default function Footer() {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
+                  href="/northwind-yamuna-price-list"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>Verified Price List</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/northwind-yamuna-site-visit"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>Book Site Visit</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/northwind-yamuna-3-bhk"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>3 BHK Price &amp; Layout</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/northwind-yamuna-brochure"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>Brochure Download</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/luxury-apartments-yamuna-expressway"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>Yamuna Luxury Flats</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/apartments-near-jewar-airport"
                   className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
                 >
@@ -142,24 +187,6 @@ export default function Footer() {
                   className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
                 >
                   <span>Sector 22D Location Guide</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/price-list"
-                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
-                >
-                  <span>Price List &amp; Payment Plans</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/floor-plans"
-                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
-                >
-                  <span>Floor Plans &amp; Blueprints</span>
                   <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
                 </Link>
               </li>
@@ -200,6 +227,20 @@ export default function Footer() {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* Direct Keyword Landing Hubs */}
+        <div className="py-4 border-b border-[#ACC78C]/15 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-[#FFFCEC]/70">
+          <span className="text-[#ACC78C] font-semibold uppercase tracking-wider text-[10px]">Popular Searches:</span>
+          <Link href="/northwind-yamuna-price-list" className="hover:text-[#ACC78C] underline decoration-[#ACC78C]/30 underline-offset-2">Northwind Yamuna Price List</Link>
+          <span className="text-[#ACC78C]/30 hidden sm:inline">•</span>
+          <Link href="/northwind-yamuna-site-visit" className="hover:text-[#ACC78C] underline decoration-[#ACC78C]/30 underline-offset-2">Northwind Yamuna Site Visit</Link>
+          <span className="text-[#ACC78C]/30 hidden sm:inline">•</span>
+          <Link href="/northwind-yamuna-3-bhk" className="hover:text-[#ACC78C] underline decoration-[#ACC78C]/30 underline-offset-2">Northwind Yamuna 3 BHK Price</Link>
+          <span className="text-[#ACC78C]/30 hidden sm:inline">•</span>
+          <Link href="/northwind-yamuna-brochure" className="hover:text-[#ACC78C] underline decoration-[#ACC78C]/30 underline-offset-2">Northwind Yamuna Brochure Download</Link>
+          <span className="text-[#ACC78C]/30 hidden sm:inline">•</span>
+          <Link href="/luxury-apartments-yamuna-expressway" className="hover:text-[#ACC78C] underline decoration-[#ACC78C]/30 underline-offset-2">Luxury Apartments Yamuna Expressway</Link>
         </div>
 
         {/* Bottom Legal Row */}

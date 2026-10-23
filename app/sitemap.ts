@@ -37,28 +37,58 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // High-Intent Keyword Landing Pages
   const keywordRoutes: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/apartments-near-jewar-airport`,
+      url: `${baseUrl}/northwind-yamuna-price-list`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/northwind-yamuna-site-visit`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/northwind-yamuna-3-bhk`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/northwind-yamuna-brochure`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/luxury-apartments-yamuna-expressway`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/apartments-near-jewar-airport`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/location-sector-22d-yamuna-expressway`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/price-list`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/floor-plans`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
     },
   ];
 

@@ -1,22 +1,36 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import {
+  trackFormStart,
+  trackFormSubmit,
+  trackGenerateLead,
+  ConversionAction,
+} from "@/lib/analytics";
 
 interface LeadFormProps {
   sourceCTA?: string;
   sourcePage?: string;
   defaultConfig?: string;
+  submitText?: string;
+  conversionAction?: ConversionAction;
   onSuccess?: () => void;
   compact?: boolean;
+  showDateField?: boolean;
+  dateRequired?: boolean;
 }
 
 export default function LeadForm({
   sourceCTA = "Lead Form",
   sourcePage = "/",
   defaultConfig = "",
+  submitText = "Submit Enquiry",
+  conversionAction = "general_lead",
   onSuccess,
   compact = false,
+  showDateField = true,
+  dateRequired = false,
 }: LeadFormProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -41,6 +55,7 @@ export default function LeadForm({
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const formStartedRef = useRef(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -60,6 +75,13 @@ export default function LeadForm({
       setFormData((prev) => ({ ...prev, configuration: defaultConfig }));
     }
   }, [defaultConfig]);
+
+  const handleFocus = () => {
+    if (!formStartedRef.current) {
+      formStartedRef.current = true;
+      trackFormStart(sourceCTA, typeof window !== "undefined" ? window.location.pathname : sourcePage);
+    }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -88,16 +110,21 @@ export default function LeadForm({
       return;
     }
 
+    if (dateRequired && !formData.visitDate) {
+      setErrorMessage("Please select your preferred visit date.");
+      return;
+    }
+
     if (!formData.consent) {
       setErrorMessage("Please accept the consent terms to proceed.");
       return;
     }
 
     setLoading(true);
+    const currentPage = typeof window !== "undefined" ? window.location.pathname : sourcePage;
+    trackFormSubmit(sourceCTA, currentPage);
 
     try {
-      const currentPage = typeof window !== "undefined" ? window.location.pathname : sourcePage;
-
       const payload = {
         ...formData,
         sourceCTA,
@@ -115,6 +142,14 @@ export default function LeadForm({
 
       if (res.ok && result.success) {
         setSubmitted(true);
+        // Track GA4 conversion event without PII
+        trackGenerateLead({
+          action: conversionAction,
+          sourcePage: currentPage,
+          sourceCTA,
+          configuration: formData.configuration,
+        });
+
         if (onSuccess) {
           setTimeout(() => {
             onSuccess();
@@ -123,7 +158,7 @@ export default function LeadForm({
       } else {
         setErrorMessage(result.error || "Form submission failed. Please try calling us directly.");
       }
-    } catch (err) {
+    } catch {
       setErrorMessage("Network error occurred. Please check your internet connection.");
     } finally {
       setLoading(false);
@@ -136,9 +171,9 @@ export default function LeadForm({
         <div className="w-16 h-16 bg-[#0D3829] text-[#FFFCEC] rounded-full flex items-center justify-center mx-auto">
           <CheckCircle className="w-10 h-10 text-[#ACC78C]" />
         </div>
-        <h3 className="text-2xl font-serif font-bold text-[#0D3829]">Enquiry Submitted!</h3>
+        <h3 className="text-2xl font-serif font-bold text-[#0D3829]">Enquiry Received!</h3>
         <p className="text-[#2D3C25] text-sm leading-relaxed max-w-md mx-auto font-light">
-          Thank you! Our property consultant will contact you shortly with complete brochures, floor plans, and pricing details.
+          Thank you! Our property advisory team has received your enquiry. We will share verified pricing, layout brochures, and schedule details via WhatsApp &amp; phone shortly.
         </p>
         <button
           onClick={() => {
@@ -154,6 +189,7 @@ export default function LeadForm({
               consent: true,
               bot_check: "",
             });
+            formStartedRef.current = false;
           }}
           className="text-xs text-[#0D3829] hover:underline font-semibold pt-2 block mx-auto cursor-pointer"
         >
@@ -165,7 +201,7 @@ export default function LeadForm({
 
   return (
     <form onSubmit={handleSubmit} className={`${compact ? "space-y-3" : "space-y-4"} text-left`}>
-      {/* Honeypot Field (Invisible to real users) */}
+      {/* Honeypot Field */}
       <div className="hidden" aria-hidden="true">
         <input
           type="text"
@@ -187,7 +223,7 @@ export default function LeadForm({
       {/* Name */}
       <div>
         <label className={`block font-semibold text-[#0D3829] ${compact ? "text-[11px] mb-1" : "text-xs mb-1.5"}`}>
-          Full Name <span className="text-[#0D3829]">*</span>
+          Full Name <span className="text-rose-700">*</span>
         </label>
         <input
           type="text"
@@ -195,6 +231,7 @@ export default function LeadForm({
           required
           placeholder="e.g. Rahul Sharma"
           value={formData.name}
+          onFocus={handleFocus}
           onChange={handleChange}
           className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg ${compact ? "px-3 py-2 text-xs" : "px-3.5 py-2.5 text-sm"} placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
         />
@@ -203,7 +240,7 @@ export default function LeadForm({
       {/* Phone */}
       <div>
         <label className={`block font-semibold text-[#0D3829] ${compact ? "text-[11px] mb-1" : "text-xs mb-1.5"}`}>
-          Mobile Number <span className="text-[#0D3829]">*</span>
+          Mobile Number <span className="text-rose-700">*</span>
         </label>
         <div className="flex">
           <span className={`inline-flex items-center rounded-l-lg border border-r-0 border-[#0D3829]/25 bg-[#F4F1DF] text-[#0D3829] font-semibold ${compact ? "px-2.5 text-[11px]" : "px-3 text-xs"}`}>
@@ -216,6 +253,7 @@ export default function LeadForm({
             maxLength={10}
             placeholder="10-digit mobile number"
             value={formData.phone}
+            onFocus={handleFocus}
             onChange={handleChange}
             className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-r-lg ${compact ? "px-3 py-2 text-xs" : "px-3.5 py-2.5 text-sm"} placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
           />
@@ -232,6 +270,7 @@ export default function LeadForm({
           name="email"
           placeholder="name@example.com"
           value={formData.email}
+          onFocus={handleFocus}
           onChange={handleChange}
           className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg ${compact ? "px-3 py-2 text-xs" : "px-3.5 py-2.5 text-sm"} placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
         />
@@ -246,6 +285,7 @@ export default function LeadForm({
           <select
             name="configuration"
             value={formData.configuration}
+            onFocus={handleFocus}
             onChange={handleChange}
             className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg ${compact ? "px-2 py-2 text-[11px]" : "px-3 py-2.5 text-xs sm:text-sm"} focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
           >
@@ -263,6 +303,7 @@ export default function LeadForm({
           <select
             name="budget"
             value={formData.budget}
+            onFocus={handleFocus}
             onChange={handleChange}
             className={`w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg ${compact ? "px-2 py-2 text-[11px]" : "px-3 py-2.5 text-xs sm:text-sm"} focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs`}
           >
@@ -276,51 +317,61 @@ export default function LeadForm({
         </div>
       </div>
 
-      {/* Visit Date & Message */}
-      {!compact && (
-        <>
-          <div>
-            <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
-              Preferred Site Visit Date <span className="text-[#5E7168] font-normal">(Optional)</span>
-            </label>
-            <input
-              type="date"
-              name="visitDate"
-              value={formData.visitDate}
-              onChange={handleChange}
-              min={new Date().toISOString().split("T")[0]}
-              className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg px-3.5 py-2.5 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
-            />
-          </div>
+      {/* Optional Date Field */}
+      {showDateField && (
+        <div>
+          <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
+            Preferred Site Visit Date {dateRequired ? <span className="text-rose-700">*</span> : <span className="text-[#5E7168] font-normal">(Optional)</span>}
+          </label>
+          <input
+            type="date"
+            name="visitDate"
+            required={dateRequired}
+            value={formData.visitDate}
+            onFocus={handleFocus}
+            onChange={handleChange}
+            min={new Date().toISOString().split("T")[0]}
+            className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg px-3.5 py-2.5 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
+          />
+        </div>
+      )}
 
-          <div>
-            <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
-              Specific Query / Message <span className="text-[#5E7168] font-normal">(Optional)</span>
-            </label>
-            <textarea
-              name="message"
-              rows={2}
-              placeholder="e.g. Please share floor plans, payment schedule & site visit cab availability."
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg px-3.5 py-2 text-xs sm:text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
-            />
-          </div>
-        </>
+      {/* Specific Query */}
+      {!compact && (
+        <div>
+          <label className="block text-xs font-semibold text-[#0D3829] mb-1.5">
+            Specific Query / Message <span className="text-[#5E7168] font-normal">(Optional)</span>
+          </label>
+          <textarea
+            name="message"
+            rows={2}
+            placeholder="e.g. Please share official cost sheets, payment schedule & site visit cab availability."
+            value={formData.message}
+            onFocus={handleFocus}
+            onChange={handleChange}
+            className="w-full bg-white border border-[#0D3829]/25 focus:border-[#0D3829] text-[#0D3829] rounded-lg px-3.5 py-2 text-xs sm:text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0D3829] transition shadow-xs"
+          />
+        </div>
       )}
 
       {/* Consent Checkbox */}
       <div className="flex items-start gap-2 pt-0.5">
         <input
           type="checkbox"
-          id="consent"
+          id={`consent-${sourceCTA.replace(/\s+/g, '-').toLowerCase()}`}
           name="consent"
           checked={formData.consent}
           onChange={handleChange}
           className="mt-0.5 h-3.5 w-3.5 rounded border-[#0D3829]/30 bg-white text-[#0D3829] focus:ring-[#0D3829] accent-[#0D3829]"
         />
-        <label htmlFor="consent" className="text-[10px] sm:text-[11px] text-[#2D3C25] leading-snug">
-          I agree to be contacted regarding this property enquiry via Phone, WhatsApp &amp; Email.
+        <label
+          htmlFor={`consent-${sourceCTA.replace(/\s+/g, '-').toLowerCase()}`}
+          className="text-[10px] sm:text-[11px] text-[#2D3C25] leading-snug"
+        >
+          I agree to be contacted regarding this property enquiry via Phone, WhatsApp &amp; Email. View our{" "}
+          <a href="/privacy-policy" className="underline font-semibold text-[#0D3829]">
+            Privacy Policy
+          </a>.
         </label>
       </div>
 
@@ -337,14 +388,14 @@ export default function LeadForm({
           </>
         ) : (
           <>
-            <span>Submit Enquiry</span>
+            <span>{submitText}</span>
             <Send className="w-3.5 h-3.5 text-[#ACC78C]" />
           </>
         )}
       </button>
 
       <p className="text-[9px] sm:text-[10px] text-[#5E7168] text-center pt-0.5 font-light">
-        Your details are strictly confidential.
+        Your contact details are kept strictly private as per our privacy policy.
       </p>
     </form>
   );

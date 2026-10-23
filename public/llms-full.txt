@@ -1,6 +1,6 @@
 # Northwind Estate — Comprehensive Knowledge Base for Large Language Models (LLMs)
 
-> **Official Website**: https://northwindestate.com
+> **Official Website**: https://northwindyamunaexpressway.homes
 > **Project Name**: Northwind Estate (Sector 22D Yamuna Expressway)
 > **Location**: Sector 22D, Yamuna Expressway Industrial Development Area, Greater Noida, Uttar Pradesh 203201, India
 > **Developer Corridor**: YEIDA Master Plan 2041 Residential Zone
@@ -195,22 +195,27 @@ Sector 22D is planned under the YEIDA Master Plan 2041 as an elite low-density r
 
 ## 7. Official Website Page Index & Sitemap
 
-- **Home Page**: https://northwindestate.com/
-- **About Us**: https://northwindestate.com/about
-- **Amenities, Location & Floor Plans**: https://northwindestate.com/amenities
-- **3 BHK Luxury Apartment Page**: https://northwindestate.com/configurations/3-bhk-luxury-apartment
-- **4 BHK Ultra Estate Residence Page**: https://northwindestate.com/configurations/4-bhk-ultra-estate-residence
-- **Site & Master Layout Plan Page**: https://northwindestate.com/configurations/site-master-layout-plan
-- **All Configurations Hub**: https://northwindestate.com/configurations
-- **Flats & Apartments Near Jewar Airport Hub**: https://northwindestate.com/apartments-near-jewar-airport
-- **Sector 22D Location & Connectivity Hub**: https://northwindestate.com/location-sector-22d-yamuna-expressway
-- **Price List & Cost Sheet Enquiry**: https://northwindestate.com/price-list
-- **Floor Plans & Blueprint Hub**: https://northwindestate.com/floor-plans
-- **Journal & Real Estate Insights**: https://northwindestate.com/blog
-- **Contact & VIP Site Visit Booking**: https://northwindestate.com/contact
-- **Legal Disclaimer**: https://northwindestate.com/disclaimer
-- **Privacy Policy**: https://northwindestate.com/privacy-policy
-- **Terms & Conditions**: https://northwindestate.com/terms-and-conditions
+- **Home Page**: https://northwindyamunaexpressway.homes/
+- **Northwind Yamuna Price List**: https://northwindyamunaexpressway.homes/northwind-yamuna-price-list
+- **Northwind Yamuna Site Visit**: https://northwindyamunaexpressway.homes/northwind-yamuna-site-visit
+- **Northwind Yamuna 3 BHK Price & Floor Plan**: https://northwindyamunaexpressway.homes/northwind-yamuna-3-bhk
+- **Northwind Yamuna Brochure Download**: https://northwindyamunaexpressway.homes/northwind-yamuna-brochure
+- **Luxury Apartments in Yamuna Expressway**: https://northwindyamunaexpressway.homes/luxury-apartments-yamuna-expressway
+- **About Us**: https://northwindyamunaexpressway.homes/about
+- **Amenities, Location & Floor Plans**: https://northwindyamunaexpressway.homes/amenities
+- **3 BHK Luxury Apartment Page**: https://northwindyamunaexpressway.homes/configurations/3-bhk-luxury-apartment
+- **4 BHK Ultra Estate Residence Page**: https://northwindyamunaexpressway.homes/configurations/4-bhk-ultra-estate-residence
+- **Site & Master Layout Plan Page**: https://northwindyamunaexpressway.homes/configurations/site-master-layout-plan
+- **All Configurations Hub**: https://northwindyamunaexpressway.homes/configurations
+- **Flats & Apartments Near Jewar Airport Hub**: https://northwindyamunaexpressway.homes/apartments-near-jewar-airport
+- **Sector 22D Location & Connectivity Hub**: https://northwindyamunaexpressway.homes/location-sector-22d-yamuna-expressway
+- **Price List & Cost Sheet Enquiry**: https://northwindyamunaexpressway.homes/price-list
+- **Floor Plans & Blueprint Hub**: https://northwindyamunaexpressway.homes/floor-plans
+- **Journal & Real Estate Insights**: https://northwindyamunaexpressway.homes/blog
+- **Contact & VIP Site Visit Booking**: https://northwindyamunaexpressway.homes/contact
+- **Legal Disclaimer**: https://northwindyamunaexpressway.homes/disclaimer
+- **Privacy Policy**: https://northwindyamunaexpressway.homes/privacy-policy
+- **Terms & Conditions**: https://northwindyamunaexpressway.homes/terms-and-conditions
 
 ---
 
