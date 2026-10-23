@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldAlert, ArrowUpRight, Phone, Mail } from "lucide-react";
+import { ShieldAlert, ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import { useLeadModal } from "./LeadModalContext";
 
@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0D3829] border-t border-[#ACC78C]/20 text-[#FFFCEC]/80 text-xs pt-14 pb-24 md:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pb-12 border-b border-[#ACC78C]/15">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 pb-12 border-b border-[#ACC78C]/15">
           {/* Brand Info */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex flex-col items-center sm:items-start w-fit">
@@ -42,26 +42,41 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Navigation */}
           <div className="space-y-3">
             <h4 className="font-serif text-sm font-bold text-[#ACC78C] uppercase tracking-wider">
               Navigation
             </h4>
             <ul className="space-y-2 text-xs">
-              {siteConfig.navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-[#ACC78C] transition flex items-center gap-1.5 text-[#FFFCEC]/80 font-medium"
-                  >
-                    <span>{link.label}</span>
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/" className="hover:text-[#ACC78C] transition text-[#FFFCEC]/80 font-medium">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-[#ACC78C] transition text-[#FFFCEC]/80 font-medium">
+                  About Project
+                </Link>
+              </li>
+              <li>
+                <Link href="/amenities" className="hover:text-[#ACC78C] transition text-[#FFFCEC]/80 font-medium">
+                  Resort Amenities
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-[#ACC78C] transition text-[#FFFCEC]/80 font-medium">
+                  Journal &amp; Insights
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#ACC78C] transition text-[#FFFCEC]/80 font-medium">
+                  Contact &amp; Site Visit
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Property Configurations */}
+          {/* Configurations */}
           <div className="space-y-3">
             <h4 className="font-serif text-sm font-bold text-[#ACC78C] uppercase tracking-wider">
               Configurations
@@ -69,8 +84,17 @@ export default function Footer() {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
+                  href="/configurations"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>All Configurations</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/configurations/3-bhk-luxury-apartment"
-                  className="hover:text-[#ACC78C] text-left transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
                 >
                   <span>3 BHK Luxury Apartment</span>
                   <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
@@ -79,7 +103,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/configurations/4-bhk-ultra-estate-residence"
-                  className="hover:text-[#ACC78C] text-left transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
                 >
                   <span>4 BHK Ultra Estate Residence</span>
                   <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
@@ -88,9 +112,54 @@ export default function Footer() {
               <li>
                 <Link
                   href="/configurations/site-master-layout-plan"
-                  className="hover:text-[#ACC78C] text-left transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
                 >
-                  <span>Site &amp; Master Layout Plan</span>
+                  <span>Site &amp; Master Layout</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Keyword Hubs & Growth Corridor */}
+          <div className="space-y-3">
+            <h4 className="font-serif text-sm font-bold text-[#ACC78C] uppercase tracking-wider">
+              Growth Corridor
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link
+                  href="/apartments-near-jewar-airport"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>Jewar Airport Residences</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/location-sector-22d-yamuna-expressway"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>Sector 22D Location Guide</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/price-list"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>Price List &amp; Payment Plans</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/floor-plans"
+                  className="hover:text-[#ACC78C] transition flex items-center gap-1 text-[#FFFCEC]/80 font-medium"
+                >
+                  <span>Floor Plans &amp; Blueprints</span>
                   <ArrowUpRight className="w-3 h-3 text-[#ACC78C]" />
                 </Link>
               </li>
@@ -98,7 +167,7 @@ export default function Footer() {
           </div>
 
           {/* Contact CTA */}
-          <div className="space-y-3">
+          <div className="space-y-3 sm:col-span-2 lg:col-span-1">
             <h4 className="font-serif text-sm font-bold text-[#ACC78C] uppercase tracking-wider">
               Sales Enquiry
             </h4>

@@ -74,14 +74,14 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5">
             {siteConfig.navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium transition-all hover:text-[#0D3829] relative py-1 ${
+                  className={`text-xs xl:text-sm font-medium transition-all hover:text-[#0D3829] relative py-1 whitespace-nowrap ${
                     isActive ? "text-[#0D3829] font-bold" : "text-[#173A2C]/80"
                   }`}
                 >
@@ -95,7 +95,7 @@ export default function Header() {
           </nav>
 
           {/* Action CTAs Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={() =>
                 openLeadModal({
@@ -103,7 +103,7 @@ export default function Header() {
                   ctaSource: "Header Desktop Call Sales",
                 })
               }
-              className="flex items-center gap-2 text-xs font-semibold text-[#0D3829] hover:bg-[#0D3829]/10 px-3.5 py-2.5 rounded-lg bg-[#0D3829]/5 border border-[#0D3829]/15 transition shadow-xs cursor-pointer"
+              className="flex items-center gap-2 text-xs font-semibold text-[#0D3829] hover:bg-[#0D3829]/10 px-3 py-2 rounded-lg bg-[#0D3829]/5 border border-[#0D3829]/15 transition shadow-xs cursor-pointer"
             >
               <Phone className="w-3.5 h-3.5 text-[#0D3829]" />
               <span>Call Sales</span>
@@ -116,7 +116,7 @@ export default function Header() {
                   ctaSource: "Header Desktop CTA",
                 })
               }
-              className="bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] font-semibold px-4 py-2.5 rounded-lg text-xs tracking-wider uppercase shadow-xs transition flex items-center gap-1.5 cursor-pointer border border-[#ACC78C]/30"
+              className="bg-[#0D3829] hover:bg-[#1E3A2B] text-[#FFFCEC] font-semibold px-3.5 py-2 rounded-lg text-xs tracking-wider uppercase shadow-xs transition flex items-center gap-1.5 cursor-pointer border border-[#ACC78C]/30"
             >
               <Calendar className="w-4 h-4 text-[#ACC78C]" />
               <span>Schedule Visit</span>
@@ -126,7 +126,7 @@ export default function Header() {
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-10 h-10 rounded-xl bg-[#0D3829]/5 hover:bg-[#0D3829]/10 border border-[#0D3829]/15 text-[#0D3829] flex items-center justify-center focus:outline-none transition active:scale-95 cursor-pointer shadow-xs"
+            className="lg:hidden w-10 h-10 rounded-xl bg-[#0D3829]/5 hover:bg-[#0D3829]/10 border border-[#0D3829]/15 text-[#0D3829] flex items-center justify-center focus:outline-none transition active:scale-95 cursor-pointer shadow-xs"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -138,11 +138,11 @@ export default function Header() {
         {mobileMenuOpen && (
           <>
             <div
-              className="md:hidden fixed inset-0 top-[68px] bg-[#0D3829]/40 backdrop-blur-xs z-40 animate-fade-in"
+              className="lg:hidden fixed inset-0 top-[68px] bg-[#0D3829]/40 backdrop-blur-xs z-40 animate-fade-in"
               onClick={closeMobileMenu}
             />
 
-            <div className="md:hidden fixed inset-x-0 top-[68px] z-50 bg-[#FFFCEC] border-b border-[#0D3829]/15 p-5 space-y-5 animate-slide-up-fade shadow-2xl rounded-b-2xl">
+            <div className="lg:hidden fixed inset-x-0 top-[68px] z-50 bg-[#FFFCEC] border-b border-[#0D3829]/15 p-5 space-y-5 animate-slide-up-fade shadow-2xl rounded-b-2xl max-h-[85vh] overflow-y-auto">
               <div className="space-y-1.5">
                 {siteConfig.navLinks.map((link) => {
                   const isActive = pathname === link.href;

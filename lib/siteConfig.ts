@@ -4,7 +4,7 @@ export const siteConfig = {
   altName: "Northwind Sector 22D Yamuna Expressway",
   tagline: "Premium 3 & 4 BHK Luxury Residences on Yamuna Expressway",
   description:
-    "Explore Northwind Estate in Sector 22D, Yamuna Expressway, Greater Noida. Modern low-density residential community featuring luxury 3 & 4 BHK apartments near upcoming Noida International Airport.",
+    "Discover luxury 3 & 4 BHK apartments at Northwind Estate, Sector 22D Yamuna Expressway. Low-density gated residences near upcoming Noida International Airport.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://northwindestate.com",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+919717700596",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919717700596",
@@ -16,6 +16,9 @@ export const siteConfig = {
     corridor: "Yamuna Expressway",
     city: "Greater Noida",
     state: "Uttar Pradesh",
+    postalCode: "203201",
+    latitude: 28.3245,
+    longitude: 77.5312,
     landmark: "Adjacent to Upcoming Noida International Airport Corridor",
   },
   configurations: [
@@ -51,8 +54,12 @@ export const siteConfig = {
   navLinks: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Amenities & Location", href: "/amenities" },
+    { label: "Configurations", href: "/configurations" },
+    { label: "Jewar Airport", href: "/apartments-near-jewar-airport" },
+    { label: "Amenities", href: "/amenities" },
+    { label: "Floor Plans", href: "/floor-plans" },
+    { label: "Price List", href: "/price-list" },
     { label: "Blog", href: "/blog" },
-    { label: "Contact Us", href: "/contact" }
+    { label: "Contact", href: "/contact" }
   ]
 };

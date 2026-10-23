@@ -23,7 +23,7 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "4 BHK Ultra Estate Residence | Northwind Estate Sector 22D Yamuna Expressway",
-  description: "Discover expansive 4 BHK ultra-luxury residences at Northwind Estate, Sector 22D Yamuna Expressway. Double-height ceilings, private utility space, and panoramic balconies near Noida International Airport.",
+  description: "Discover expansive 4 BHK ultra-luxury residences at Northwind Estate, Sector 22D Yamuna Expressway. Double-height ceilings and private utility space near Jewar.",
   alternates: {
     canonical: `${siteConfig.url}/configurations/4-bhk-ultra-estate-residence`,
   },

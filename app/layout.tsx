@@ -41,17 +41,24 @@ export const metadata: Metadata = {
     "Northwind Sector 22D",
     "3 BHK Yamuna Expressway",
     "4 BHK Yamuna Expressway",
-    "residential projects Yamuna Expressway",
     "apartments near Jewar Airport",
+    "flats near Noida International Airport",
     "property in Sector 22D Greater Noida",
     "luxury apartments Greater Noida",
-    "Noida International Airport property"
+    "low density society Yamuna Expressway",
+    "YEIDA approved residential projects"
   ],
   authors: [{ name: "Northwind Estate Sales" }],
   creator: "Northwind Estate",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: {
+      "msvalidate.01": [process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || "c74384930d634dbca233f86b7617ff14"],
+    },
+  },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     url: siteConfig.url,
     title: "Northwind Estate | Premium 3 & 4 BHK Residences Yamuna Expressway",
     description: siteConfig.description,
@@ -59,8 +66,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${siteConfig.url}/images/hero/northwind-yamuna-expressway-hero.svg`,
-        width: 4200,
-        height: 4200,
+        width: 1200,
+        height: 675,
         alt: "Northwind Estate Yamuna Expressway Tower Elevation",
       },
     ],
@@ -100,7 +107,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Global Schema markup (RealEstateAgent & WebSite)
+  // Global Schema markup (RealEstateAgent & WebSite) with GEO Coordinates
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
@@ -111,6 +118,19 @@ export default function RootLayout({
     "image": `${siteConfig.url}/images/hero/northwind-yamuna-expressway-hero.svg`,
     "description": siteConfig.description,
     "telephone": siteConfig.phone,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sector 22D, Yamuna Expressway",
+      "addressLocality": "Greater Noida",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "203201",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": siteConfig.location.latitude,
+      "longitude": siteConfig.location.longitude
+    },
     "areaServed": {
       "@type": "AdministrativeArea",
       "name": "Yamuna Expressway, Greater Noida, Uttar Pradesh"

@@ -6,7 +6,7 @@ import AboutClient from "./AboutClient";
 export const metadata: Metadata = {
   title: "About Us | Northwind Estate Sector 22D Yamuna Expressway",
   description:
-    "Discover Northwind Estate in Sector 22D, Yamuna Expressway. Learn about our low-density residential master plan, architectural excellence, 3 & 4 BHK luxury residences near Jewar International Airport.",
+    "Discover Northwind Estate in Sector 22D, Yamuna Expressway. Low-density residential master plan featuring 3 & 4 BHK luxury residences near Jewar Airport.",
   alternates: {
     canonical: `${siteConfig.url}/about`,
   },
