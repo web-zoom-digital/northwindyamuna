@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/lib/siteConfig";
 import { LeadModalProvider } from "@/components/LeadModalContext";
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Northwind Estate Sales" }],
   creator: "Northwind Estate",
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    google: "4eY-n4zh2jdSvJyme1vf5fS-S1FjrDJbJaC3eT59Nnc",
     other: {
       "msvalidate.01": [process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || "c74384930d634dbca233f86b7617ff14"],
     },
@@ -147,6 +148,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} h-full antialiased`}>
       <head>
+        <meta name="google-site-verification" content="4eY-n4zh2jdSvJyme1vf5fS-S1FjrDJbJaC3eT59Nnc" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/logo-s.webp" type="image/webp" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -160,6 +162,24 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#FFFCEC] text-[#0D3829] selection:bg-[#ACC78C] selection:text-[#0D3829]">
+        {/* Google tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-6WKW8J0CFX"
+        />
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-6WKW8J0CFX');
+            `,
+          }}
+        />
+
         <LeadModalProvider>
           <Header />
           <main className="flex-grow">{children}</main>
