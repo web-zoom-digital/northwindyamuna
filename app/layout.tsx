@@ -32,8 +32,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Northwind Estate | Premium 3 & 4 BHK Residences Yamuna Expressway",
-    template: "%s | Northwind Estate Sector 22D",
+    default: "Northwind Yamuna Expressway | 3 & 4 BHK Homes in Sector 22D",
+    template: "%s | Northwind Yamuna Expressway",
   },
   description: siteConfig.description,
   keywords: [
