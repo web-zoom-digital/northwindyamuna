@@ -5,7 +5,7 @@ export const siteConfig = {
   tagline: "Premium 3 & 4 BHK Luxury Residences on Yamuna Expressway",
   description:
     "Explore Northwind Yamuna in Sector 22D, Yamuna Expressway. View available 3 & 4 BHK residences, floor plans, project details, location and pricing information. Enquire for details.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://northwindyamunaexpressway.homes",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.northwindyamuna.homes",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+919717700596",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919717700596",
   whatsappMessage: "Hi, I am interested in Northwind Estate, Sector 22D Yamuna Expressway. Please share project details and pricing.",

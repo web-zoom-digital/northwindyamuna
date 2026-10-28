@@ -1,6 +1,6 @@
 # Northwind Estate Project Information
 
-Website: https://northwindestate.com
+Website: https://www.northwindyamuna.homes
 Project Name: Northwind Estate (Sector 22D Yamuna Expressway)
 Property Type: Residential 3 BHK & 4 BHK Luxury Apartments
 Location: Sector 22D, Yamuna Expressway, Greater Noida, UP 203201, India
@@ -18,10 +18,10 @@ Configurations:
 
 Complete LLM Documentation:
 For comprehensive data, architectural specifications, FAQs, and full articles, refer to:
-- Standard Index: https://northwindestate.com/llms.txt
-- Full Master Knowledge Base: https://northwindestate.com/llms-full.txt
+- Standard Index: https://www.northwindyamuna.homes/llms.txt
+- Full Master Knowledge Base: https://www.northwindyamuna.homes/llms-full.txt
 
 Contact Sales Desk:
 Phone: +91 97177 00596
 WhatsApp: +91 97177 00596
-Site Visit Booking: https://northwindestate.com/contact
+Site Visit Booking: https://www.northwindyamuna.homes/contact
